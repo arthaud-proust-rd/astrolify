@@ -1,0 +1,41 @@
+.card
+    .media
+        @extend .card-img-top
+        @extend .ratio
+        background-color: $light
+        order: -1
+        overflow: hidden
+        img
+            @extend .card-img-top
+            height: 100%
+            object-fit: contain
+    .content
+        @extend .card-body
+    .name
+        @extend .card-title
+        @include font-size($h5-font-size)
+        font-family: $headings-font-family
+        font-weight: $headings-font-weight
+        line-height: $headings-line-height
+        text-decoration-color: transparent
+        text-decoration-line: underline
+        text-decoration-thickness: 1px
+        text-underline-offset: 3px
+        transition: text-decoration-color .2s ease
+    p
+        @extend .card-text
+    time
+        color: $text-muted
+    > a
+        text-decoration: none
+    a:hover 
+        .name
+            text-decoration-color: inherit
+
+    @media (prefers-reduced-motion: no-preference)
+        a ~ .media
+            img
+                transition: transform $transition-duration $transition-effect
+        a:hover ~ .media
+            img
+                transform: scale(1.05)

@@ -1,0 +1,128 @@
+.pagination
+    justify-content: center
+    margin-bottom: 0
+    li
+        @extend .page-item
+    a
+        @extend .page-link
+        line-height: 1
+        height: 100%
+
+    @if variable-exists(bootstrap-icons-map)
+        .first
+            &::before
+                @include icon("chevron-bar-left")
+                display: block
+                font-size: px2rem(16)
+                line-height: 1
+        .last
+            &::after
+                @include icon("chevron-bar-right")
+                display: block
+                font-size: px2rem(16)
+                line-height: 1
+        .next
+            &::after
+                @include icon("chevron-right")
+                display: block
+                font-size: px2rem(16)
+                line-height: 1
+        .previous
+            &::before
+                @include icon("chevron-left")
+                display: block
+                font-size: px2rem(16)
+                line-height: 1
+
+.pagination-between
+    --bs-pagination-bg: transparent
+    --bs-pagination-border-radius: 0
+    --bs-pagination-hover-bg: transparent
+    --bs-pagination-focus-bg: transparent
+    @extend .pagination
+    @include margin-top($global-spacing)
+    @include padding-top($global-spacing)
+    border-top: $border-width solid $border-color
+    li
+        &:first-child
+            margin-right: .5rem
+        &:last-child
+            margin-left: .5rem
+        @include media-breakpoint-down(md)
+            span
+                display: none
+    a
+        border-width: 0
+        &:hover
+            text-decoration-line: underline 
+    .previous::before,
+    .next::after
+        display: inline-block
+        margin-top: -.2em
+        vertical-align: middle
+    .previous::before
+        margin-right: .5rem
+    .next::after
+        margin-left: .5rem
+    .surtitle
+        display: block
+        margin-bottom: .5rem
+
+    &-with-title
+        @include media-breakpoint-down(md)
+            flex-direction: column
+        li
+            @include media-breakpoint-up(md)
+                width: 50%
+        a
+            display: flex
+            flex-direction: column
+            justify-content: center
+            padding: 2rem
+        .previous
+            &::before
+                position: absolute
+                left: 0
+                top: 50%
+                transform: translate(0,-50%)
+        .next
+            text-align: right
+            &::after
+                position: absolute
+                right: 0
+                top: 50%
+                transform: translate(0,-50%)
+
+    &-with-image
+        --bs-pagination-color: #{$body-color}
+        @include media-breakpoint-down(md)
+            flex-direction: column
+        li
+            @include media-breakpoint-down(md)
+                &:first-child
+                    margin-bottom: 2rem
+                    margin-right: 0
+                &:last-child
+                    margin-left: 0
+            @include media-breakpoint-up(md)
+                width: 50%
+        a
+            font-size: 1.25rem
+            line-height: 1.2
+            padding: 0
+            &:hover
+                text-decoration: none
+        img
+            display: block
+            height: auto
+            margin-top: 1rem
+            max-width: 100%
+
+        .previous::before,
+        .next::after
+            content: none
+        .next
+            @include media-breakpoint-up(md)
+                text-align: right
+                img
+                    margin-left: auto

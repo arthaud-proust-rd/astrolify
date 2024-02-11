@@ -1,0 +1,23 @@
+figure
+    margin-bottom: $paragraph-margin-bottom
+    picture
+        display: block
+    figcaption
+        display: flex
+        margin-top: .5rem
+        p
+            margin-bottom: 0
+        .credit
+            margin-left: auto
+    img
+        max-width: 100%
+        height: auto
+    picture + figcaption
+        align-items: baseline
+        justify-content: space-between
+
+    @include media-breakpoint-down(md)
+        figcaption
+            flex-direction: column-reverse
+        p + .credit
+            margin-bottom: 0.5rem

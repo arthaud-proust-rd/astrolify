@@ -1,0 +1,20 @@
+.block-selected
+    .items > div
+        @include scroll-snap
+        justify-content: center
+    .bottom
+        @include margin-top($global-spacing)
+        .btn
+            @extend .btn-secondary
+            @if variable-exists(bootstrap-icons-map)
+                &::before
+                    @include icon("arrow-right-short")
+                    font-size: 1.4rem
+                    margin-right: .5rem
+                    vertical-align: -0.35rem
+                @media (prefers-reduced-motion: no-preference)
+                    &:hover
+                        &::before
+                            transform: translateX(.3rem)
+                    &::before
+                        transition: transform $transition-duration $transition-effect

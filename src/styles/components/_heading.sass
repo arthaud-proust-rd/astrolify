@@ -1,0 +1,34 @@
+.heading
+    @include margin-bottom($global-spacing-semi)
+    align-items: baseline
+    display: flex
+    flex-wrap: wrap
+    @include media-breakpoint-down(md)
+        &:not(.heading-filter)
+            flex-direction: column
+            .more
+                margin-left: 0
+    h1, h2, p
+        margin-bottom: 0
+        text-wrap: balance
+    .surtitle
+        margin-bottom: .25em
+        flex: 0 0 100%
+    .btn,
+    .more
+        margin-left: auto
+    
+    .more
+        @include more
+
+    @include media-breakpoint-up(md)
+        h1
+            max-width: 80%
+        .surtitle
+            margin-bottom: .25em
+        .metas
+            margin-top: 1rem
+            width: 100%
+    @include media-breakpoint-up(xl)
+        h1
+            max-width: 66.6666666667%

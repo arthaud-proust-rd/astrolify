@@ -1,0 +1,49 @@
+.block-testimonials
+    .testimonials
+        @include make-row()
+        --bs-gutter-y: #{$grid-gutter-width}
+        @include scroll-snap
+        > *
+            @include make-col-ready()
+            @include media-breakpoint-up(md)
+                @include make-col(4)
+    .quote
+        --bs-card-bg: #{$light}
+        --bs-card-border-radius: 10px
+        --bs-card-border-width: 0
+        --bs-card-cap-bg: transparent
+        --bs-card-cap-padding-y: 1rem
+        @extend .card
+        height: 100%
+        @include media-breakpoint-up(md)
+            --bs-card-spacer-x: 2rem
+            --bs-card-spacer-y: 2rem
+            --bs-card-cap-padding-x: 2rem
+            --bs-card-cap-padding-y: 2rem
+        blockquote
+            @extend .card-body
+            p
+                font-size: $small-font-size
+                line-height: $line-height-base
+                @include media-breakpoint-up(md)
+                    font-size: $font-size-base
+        blockquote + figcaption
+            @extend .card-footer
+            justify-content: flex-start
+    .splide
+        &__track
+            overflow: hidden
+        &__list
+            display: flex
+        &__slide
+            flex-shrink: 0
+            opacity: .5
+            transition: opacity .3s ease
+            width: calc(100% / 3 + #{$grid-gutter-width})
+            &.is-next,
+            &.is-prev
+                opacity: .75
+            &.is-active
+                opacity: 1
+        &__pagination
+            bottom: -2rem
